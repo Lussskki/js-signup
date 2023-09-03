@@ -6,17 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
     submitButton.addEventListener("click", function () {
         const username = usernameInput.value
         const password = passwordInput.value
-
-
         const formData = {
             username: username,
             password: password,
         }
-
-
-        console.log(formData);
-
-
         submitButton.style.color = "red"
+          // Send the data to the server
+          fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Log the response from the server
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
     })
-})
+// })
+
