@@ -8,13 +8,14 @@ let app = express()
 let publicPath = path.join(__dirname, 'public')
 
 app.use(express.static(publicPath))
-
+//http get method  
 app.get('/',(req,res)=>{
+    //sending files from public to client-side front
     res.sendFile(path.join(publicPath, 'index.html'))
 })
-
-
-
+ 
+  
+ 
 
 
 app.listen(3000,()=>{
