@@ -3,31 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles.css">
     <title>Login</title>
 </head>
 <body>
-    <div class="loginBox">
+    <div class="signUpBox">
         <h2>Login</h2>
-        <form action="#">
-            <div class="userInputBox">
-                <input type="text" id="usernameInputBox" required>
-                <Label for="usernameInputBox">Username</Label>
+        <form>
+            <div class="userInputBox1">
+                <input type="text" id="usernameInput" required>
+                <label for="usernameInput">Username</label>
             </div>
 
-            <div class="userInputBox">
-                <input type="password" id="passwordInputBox" required>
-                <Label for="passwordInputBox">Password</Label>
+            <div class="userInputBox2">
+                <input type="password" id="passwordInput" required>
+                <label for="passwordInput">Password</label>
             </div>
-            <a href="#" type="submit">
-                <!-- span tag for button animation -->
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
-            </a>
+            <button id="submitButton" type="button">Submit</button>
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
