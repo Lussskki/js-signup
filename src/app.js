@@ -3,7 +3,9 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
 import bodyParser from 'body-parser'
-    //for directory to public folder
+
+
+    //filename and dirname for import public folder
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -18,16 +20,22 @@ app.get('/',(req,res,next)=>{
     res.sendFile(path.join(publicPath, 'index.html'))
 })
 app.post('/submit', (req, res) => {
-    const formData = req.body;
+    let formData = req.body 
+
+    
     //read the existing data from 'db.json'
-    const existingData = fs.readFileSync('src/public/db.json')
+    const existingData = fs.readFileSync('src/public/db.json').toString()
     const data = JSON.parse(existingData)
+
+
     //add the new form data to the existing data
     data.push(formData)
+
+
     //write the updated data back to 'db.json'
     fs.writeFileSync('src/public/db.json', JSON.stringify(data, null, 2))
     res.json({message: 'Data successfully added to db.json'})
-});
+})
   
  
 
